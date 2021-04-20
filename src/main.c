@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:34:25 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/20 19:47:20 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/20 20:08:47 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@ int		ft_print_error(char *message)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(message, 2);
 	exit(1);
+}
+
+static int	ft_file_check(t_cub *cub)
+{
+	if (cub->id_count == 0 && cub->start_map == 0)
+		return (ft_print_error("File is empty\n"));
+	else if (cub->id_count != 8)
+		return (ft_print_error("Missing types\n"));
+	else if (cub->start_map == 0)
+		return (ft_print_error("Missing map\n"));
+	return (1);
 }
 
 static int	ft_check_input(int ac, char **av, t_cub *cub)
@@ -56,7 +67,7 @@ int			main(int ac, char **av)
 		free(cub.line);
 	}
 	close(cub.fd);
-	scene_check(&cub);
+	ft_file_check(&cub);
 	start_game(&cub);
 	exit(0);
 }
