@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:37:26 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/20 20:09:58 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/20 22:26:03 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,9 @@ typedef	struct		s_cub
 	int				startpos_x;
 	int				startpos_y;
 }					t_cub;
+
+void			ft_print_error(char *message);
+void			ft_parse_map(t_cub *scene, char *line);
+void			ft_check_doubles(t_cub *cub, char *line);
 
 #endif
