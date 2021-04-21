@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 21:45:06 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/20 23:16:11 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/21 19:37:55 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ static int	ft_check_line(t_cub *cub, char *line)
 	return (1);
 }
 
-void	ft_parse_map(t_cub *cub, char *line)
+int			ft_parse_map(t_cub *cub, char *line)
 {
 	if (*line == '\0' && cub->start_map == 0)
 		return ;
 	else if (cub->id_count == 8)
 	{
 		if (ft_check_line(cub, line) == 1)
-			return (get_map(scene, line));
+			return (ft_get_map(cub, line));
 	}
 	else
 	{

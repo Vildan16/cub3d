@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:37:26 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/20 22:26:03 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/21 21:08:46 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef	struct		s_cub
 	char			*we_tex_path;
 	char			*ea_tex_path;
 	char			*sprite_tex_path;
-	char			cardinal_dir;
+	char			player_dir;
 	char			*map_str;
 	char			*tmp_line;
 	char			*tmp_map;
@@ -55,7 +55,14 @@ typedef	struct		s_cub
 }					t_cub;
 
 void			ft_print_error(char *message);
-void			ft_parse_map(t_cub *scene, char *line);
+int				ft_parse_map(t_cub *cub, char *line);
 void			ft_check_doubles(t_cub *cub, char *line);
+int				ft_get_map(t_cub *cub, char *line);
+int	ft_check_chars(t_cub *cub, char *line);
+void	ft_fill_line(t_cub *cub);
+void	get_line(t_cub *cub);
+int		ft_find_startpos(t_cub *cub);
+int		ft_flood_fill(t_cub *cub, int x, int y);
+int ft_check_map(t_cub *cub);
 
 #endif
