@@ -6,11 +6,11 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:35:31 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 13:29:21 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:55:44 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub.h"
+#include "../includes/cub.h"
 
 static void	ft_swap(t_sprite_pos *num, t_sprite_pos *num1)
 {
@@ -57,7 +57,6 @@ void		ft_sort_sprites(t_game *game)
 	}
 	ft_sort(game);
 }
-
 
 static void	ft_get_sprite_coordinates(t_game *game)
 {

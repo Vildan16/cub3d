@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 13:45:47 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 14:01:05 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 16:00:03 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		ft_sprite_pixel_put(t_game *game)
 {
 	int y;
 	int d;
-	
+
 	y = game->sprite.draw_start_y;
 	while (y < game->sprite.draw_end_y)
 	{
@@ -29,7 +29,8 @@ void		ft_sprite_pixel_put(t_game *game)
 		game->tex[4].tex_x * (game->tex[4].bits_per_pixel / 8));
 		game->color = *(unsigned int*)game->tex[4].get_color;
 		if (game->color != 0xFF000000 && game->color != 0)
-			ft_my_mlx_pixel_put(game, game->sprite.draw_start_x, y, game->color);
+			ft_my_mlx_pixel_put(game, game->sprite.draw_start_x,
+			y, game->color);
 		y++;
 	}
 }

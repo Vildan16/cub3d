@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ameta <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/23 15:50:28 by ameta             #+#    #+#              #
-#    Updated: 2020/11/23 15:50:39 by ameta            ###   ########.fr        #
+#    Updated: 2021/04/22 15:47:46 by ameta            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = libft.a
 
 SRC = ft_atoi.c \
       ft_memcmp.c \
-      ft_strjoin.c \
       ft_toupper.c \
       ft_bzero.c \
       ft_memcpy.c \
@@ -24,7 +23,6 @@ SRC = ft_atoi.c \
       ft_strlcpy.c \
       ft_isalnum.c \
       ft_memset.c \
-      ft_strlen.c \
       ft_isalpha.c \
       ft_putchar_fd.c \
       ft_strmapi.c \
@@ -39,13 +37,13 @@ SRC = ft_atoi.c \
       ft_strtrim.c \
       ft_memccpy.c \
       ft_strchr.c \
-      ft_substr.c \
       ft_memchr.c \
-      ft_strdup.c \
       ft_tolower.c \
       ft_itoa.c \
       ft_strnstr.c \
-      ft_split.c
+      ft_split.c \
+      get_next_line.c \
+      get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 

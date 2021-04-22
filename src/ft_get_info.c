@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 10:20:35 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 11:00:59 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:57:05 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_set_res(char *line, t_cub *cub)
 	ft_skip_spaces(&line);
 	if (!ft_isdigit(*line))
 		ft_print_error("Invalid screen resolution\n");
-	cub->id_ptr.width = ft_atoi(&line);
+	cub->id_ptr.width = ft_get_nmb(&line);
 	if (cub->id_ptr.width == 0)
 		ft_print_error("Invalid screen resolution\n");
 	if (*line != ' ')
@@ -27,7 +27,7 @@ static int	ft_set_res(char *line, t_cub *cub)
 	ft_skip_spaces(&line);
 	if (!ft_isdigit(*line))
 		ft_print_error("Invalid screen resolution\n");
-	cub->id_ptr.height = ft_atoi(&line);
+	cub->id_ptr.height = ft_get_nmb(&line);
 	if (cub->id_ptr.height == 0)
 		ft_print_error("Invalid screen resolution\n");
 	return (ft_check_remaining_chars(line, "R"));
@@ -83,11 +83,11 @@ static int	ft_set_tex_path(t_cub *cub, char *line)
 	int		i;
 
 	i = 0;
-    if (!ft_strncmp(line, "WE", 2))
+	if (!ft_strncmp(line, "WE", 2))
 		cub->ptr = &cub->we_tex_path;
 	else if (!ft_strncmp(line, "NO", 2))
 		cub->ptr = &cub->no_tex_path;
-    else if (!ft_strncmp(line, "EA", 2))
+	else if (!ft_strncmp(line, "EA", 2))
 		cub->ptr = &cub->ea_tex_path;
 	else if (!ft_strncmp(line, "SO", 2))
 		cub->ptr = &cub->so_tex_path;
@@ -124,10 +124,11 @@ int			ft_get_info(t_cub *cub, char *line)
 		return (ft_get_rgb_colour(cub, line, "C"));
 	}
 	else if (ft_strncmp(line, "WE", 2) == 0 ||
-    ft_strncmp(line, "NO", 2) == 0 ||
-    ft_strncmp(line, "EA", 2) == 0 ||
+	ft_strncmp(line, "NO", 2) == 0 ||
+	ft_strncmp(line, "EA", 2) == 0 ||
 	ft_strncmp(line, "SO", 2) == 0 ||
 	ft_strncmp(line, "S", 1) == 0)
 		return (ft_set_tex_path(cub, line));
-	ft_print_error("Invalid type ids\n");,
+	ft_print_error("Invalid type ids\n");
+	return (0);
 }

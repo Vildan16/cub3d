@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 12:23:49 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 14:13:58 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:57:58 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static void	ft_find_wall(t_game *game)
 	}
 }
 
-void		ft_render_next_frame(t_game *game)
+int			ft_render_next_frame(t_game *game)
 {
 	game->z_buffer = ft_calloc(game->width, sizeof(double));
 	if (game->z_buffer == NULL)
@@ -118,4 +118,5 @@ void		ft_render_next_frame(t_game *game)
 	if (game->save_flag == 0)
 		ft_get_new_img(game);
 	ft_player_move(game);
+	return (1);
 }

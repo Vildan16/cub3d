@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 14:12:06 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 14:31:09 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:58:33 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void		ft_player_move(t_game *game)
 {
 	if (game->key.w)
 		ft_move_forward(game);
-    if (game->key.a)
+	if (game->key.a)
 		ft_move_left(game);
 	if (game->key.s)
 		ft_move_backward(game);

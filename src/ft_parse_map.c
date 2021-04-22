@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 21:45:06 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 11:03:33 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:43:24 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			ft_check_remaining_chars(char *line, char *type)
 	while (*line)
 	{
 		if (*line == ' ')
-			ft_skip_space(&line);
+			ft_skip_spaces(&line);
 		else
 		{
 			if (!ft_strncmp(type, "R", 1))
@@ -33,7 +33,7 @@ int			ft_check_remaining_chars(char *line, char *type)
 			else if (!ft_strncmp(type, "S", 1))
 				ft_print_error("Invalid character after S\n");
 			else if (!ft_strncmp(type, "C", 1))
-				rft_print_error("Invalid character after C\n");
+				ft_print_error("Invalid character after C\n");
 		}
 	}
 	return (1);
@@ -64,14 +64,14 @@ static int	ft_check_line(t_cub *cub, char *line)
 		return (1);
 	}
 	else if (*line != '\0' && cub->end_map == 1)
-		return (error("Characters after map\n"));
+		ft_print_error("Characters after map\n");
 	return (1);
 }
 
 int			ft_parse_map(t_cub *cub, char *line)
 {
 	if (*line == '\0' && cub->start_map == 0)
-		return ;
+		return (1);
 	else if (cub->id_count == 8)
 	{
 		if (ft_check_line(cub, line) == 1)

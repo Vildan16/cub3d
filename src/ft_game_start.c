@@ -6,13 +6,13 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:05:39 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 14:35:47 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 15:56:23 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
 
-static void	ft_get_game_map(t_game *game, t_cub *cub)
+static void		ft_get_game_map(t_game *game, t_cub *cub)
 {
 	game->map = ft_calloc(cub->line_count + 1, sizeof(char *));
 	if (game->map == NULL)
@@ -81,7 +81,7 @@ static int		ft_press_key(int keycode, t_game *game)
 	return (0);
 }
 
-int			ft_game_start(t_cub *cub)
+int				ft_game_start(t_cub *cub)
 {
 	t_game		game;
 
@@ -99,7 +99,7 @@ int			ft_game_start(t_cub *cub)
 		ft_bmp_save(&game);
 		exit(0);
 	}
-	mlx_loop_hook(game.mlx.mlx, render_next_frame, &game);
+	mlx_loop_hook(game.mlx.mlx, ft_render_next_frame, &game);
 	mlx_loop(game.mlx.mlx);
 	exit(0);
 }
