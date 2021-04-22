@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:05:39 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 11:38:31 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 12:16:18 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,47 @@ static void	ft_get_game_map(t_game *game, t_cub *cub)
 	}
 }
 
+int				ft_game_exit(void)
+{
+	exit(0);
+}
+
+static int		ft_release_key(int keycode, t_game *game)
+{
+	if (keycode == 13)
+		game->key.w = 0;
+	else if (keycode == 0)
+		game->key.a = 0;
+	else if (keycode == 1)
+		game->key.s = 0;
+	else if (keycode == 2)
+		game->key.d = 0;
+	else if (keycode == 123)
+		game->key.arrow_left = 0;
+	else if (keycode == 124)
+		game->key.arrow_right = 0;
+	return (0);
+}
+
+static int		ft_press_key(int keycode, t_game *game)
+{
+	if (keycode == 13)
+		game->key.w = 1;
+	else if (keycode == 0)
+		game->key.a = 1;
+	else if (keycode == 1)
+		game->key.s = 1;
+	else if (keycode == 2)
+		game->key.d = 1;
+	else if (keycode == 123)
+		game->key.arrow_left = 1;
+	else if (keycode == 124)
+		game->key.arrow_right = 1;
+	if (keycode == 53)
+		exit(0);
+	return (0);
+}
+
 int			ft_game_start(t_cub *cub)
 {
 	t_game		game;
@@ -48,13 +89,13 @@ int			ft_game_start(t_cub *cub)
 	ft_get_game_map(&game, cub);
 	ft_get_sprite_pos(&game);
 	ft_game_init(&game, cub);
-	mlx_hook(game.mlx.win, 2, 1L << 0, press, &game);
-	mlx_hook(game.mlx.win, 3, 1L << 1, release, &game);
-	mlx_hook(game.mlx.win, 17, 1L << 0, exit_game, &game);
-	mlx_hook(game.mlx.win, 17, 1L << 2, exit_game, &game);
+	mlx_hook(game.mlx.win, 2, 1L << 0, ft_press_key, &game);
+	mlx_hook(game.mlx.win, 3, 1L << 1, ft_release_key, &game);
+	mlx_hook(game.mlx.win, 17, 1L << 0, ft_game_exit, &game);
+	mlx_hook(game.mlx.win, 17, 1L << 2, ft_game_exit, &game);
 	if (cub->save_bmp == 1)
 	{
-		render_next_frame(&game);
+		ft_render_next_frame(&game);
 		save_bmp(&game);
 		exit(0);
 	}

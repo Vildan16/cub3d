@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:37:26 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 12:00:21 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 13:58:24 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,5 +219,14 @@ int			ft_game_start(t_cub *cub);
 void		ft_get_sprite_pos(t_game *game);
 void		ft_game_init(t_game *game, t_cub *cub);
 void		ft_set_texture(t_game *game, t_cub *cub);
+void		ft_render_next_frame(t_game *game);
+void	ft_set_wall_height(t_game *game);
+void	ft_set_tex_vars(t_game *game);
+void	ft_put_pixels(t_game *game);
+void	ft_my_mlx_pixel_put(t_game *game, int x, int y, int color);
+void		ft_set_sprite(t_game *game, double *z_buffer);
+void		ft_sort_sprites(t_game *game);
+void		ft_sprite_draw(t_game *game, double *z_buffer);
+void		ft_sprite_pixel_put(t_game *game);
 
 #endif
