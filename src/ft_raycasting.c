@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 12:23:49 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 13:16:30 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 14:13:58 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void		ft_render_next_frame(t_game *game)
 	ft_set_sprite(game, game->z_buffer);
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.img, 0, 0);
 	if (game->save_flag == 0)
-		get_new_img(game);
-	move_player(game);
-	return (SUCCESS);
+		ft_get_new_img(game);
+	ft_player_move(game);
 }

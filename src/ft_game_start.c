@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:05:39 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 12:16:18 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 14:35:47 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int			ft_game_start(t_cub *cub)
 	if (cub->save_bmp == 1)
 	{
 		ft_render_next_frame(&game);
-		save_bmp(&game);
+		ft_bmp_save(&game);
 		exit(0);
 	}
 	mlx_loop_hook(game.mlx.mlx, render_next_frame, &game);

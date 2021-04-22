@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:37:26 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 13:58:24 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 14:33:23 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include <fcntl.h>
+
+# define MOVE_SPD .1222
+# define ROT_SPD .1222
 
 typedef struct		s_rgb
 {
@@ -228,5 +231,9 @@ void		ft_set_sprite(t_game *game, double *z_buffer);
 void		ft_sort_sprites(t_game *game);
 void		ft_sprite_draw(t_game *game, double *z_buffer);
 void		ft_sprite_pixel_put(t_game *game);
+void	ft_get_new_img(t_game *game);
+void		ft_player_move(t_game *game);
+void	ft_rotate_right(t_game *game);
+void	ft_rotate_left(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 13:07:08 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 13:15:39 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 14:10:29 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,13 @@ void	ft_set_wall_height(t_game *game)
 	game->draw_end = game->line_height / 2 + game->height / 2;
 	if (game->draw_end >= game->height)
 		game->draw_end = game->height - 1;
+}
+
+void	ft_get_new_img(t_game *game)
+{
+	mlx_destroy_image(game->mlx.mlx, game->mlx.img);
+	game->mlx.img = mlx_new_image(game->mlx.mlx, game->width, game->height);
+	game->mlx.addr = mlx_get_data_addr(game->mlx.img,
+	&game->mlx.bits_per_pixel, &game->mlx.line_length,
+	&game->mlx.endian);
 }
