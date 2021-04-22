@@ -6,11 +6,38 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 21:45:06 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/21 19:37:55 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 11:03:33 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
+
+void		ft_skip_spaces(char **line)
+{
+	while (**line == ' ')
+		(*line)++;
+}
+
+int			ft_check_remaining_chars(char *line, char *type)
+{
+	while (*line)
+	{
+		if (*line == ' ')
+			ft_skip_space(&line);
+		else
+		{
+			if (!ft_strncmp(type, "R", 1))
+				ft_print_error("Invalid character after R\n");
+			else if (!ft_strncmp(type, "F", 1))
+				ft_print_error("Invalid character after F\n");
+			else if (!ft_strncmp(type, "S", 1))
+				ft_print_error("Invalid character after S\n");
+			else if (!ft_strncmp(type, "C", 1))
+				rft_print_error("Invalid character after C\n");
+		}
+	}
+	return (1);
+}
 
 void		ft_check_doubles(t_cub *cub, char *line)
 {
@@ -52,17 +79,17 @@ int			ft_parse_map(t_cub *cub, char *line)
 	}
 	else
 	{
-		skip_space(&line);
-		if ((ft_strchr("RSFC", *line) && *(line + 1) == SPACE) ||
-			ft_strncmp(line, "NO ", 3) == 0 ||
-			ft_strncmp(line, "SO ", 3) == 0 ||
+		ft_skip_spaces(&line);
+		if ((ft_strchr("RFCS", *line) && *(line + 1) == ' ') ||
 			ft_strncmp(line, "WE ", 3) == 0 ||
+			ft_strncmp(line, "SO ", 3) == 0 ||
+			ft_strncmp(line, "NO ", 3) == 0 ||
 			ft_strncmp(line, "EA ", 3) == 0)
-			return (get_id_info(scene, line));
+			return (ft_get_info(cub, line));
 		else if (!(ft_strchr("012", *line)))
-			return (error("Error: invalid type id detected\n"));
+			ft_print_error("Invalid type ids\n");
 		else
-			return (error("Error: missing type id(s)\n"));
+			ft_print_error("Missing type ids\n");
 	}
-	return (SUCCESS);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:34:25 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/20 22:31:36 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 11:05:29 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		ft_print_error(char *message)
 static void	ft_file_check(t_cub *cub)
 {
 	if (cub->id_count == 0 && cub->start_map == 0)
-		ft_print_error("File is empty\n");
+		ft_print_error("Empty file\n");
 	else if (cub->id_count != 8)
 		ft_print_error("Missing types\n");
 	else if (cub->start_map == 0)
@@ -67,6 +67,6 @@ int			main(int ac, char **av)
 	}
 	close(cub.fd);
 	ft_file_check(&cub);
-	ft_game(&cub);
+	ft_game_start(&cub);
 	exit(0);
 }
