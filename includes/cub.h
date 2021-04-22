@@ -6,7 +6,7 @@
 /*   By: ameta <ameta@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 13:37:26 by ameta             #+#    #+#             */
-/*   Updated: 2021/04/22 11:12:50 by ameta            ###   ########.fr       */
+/*   Updated: 2021/04/22 12:00:21 by ameta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,5 +214,10 @@ int ft_check_map(t_cub *cub);
 void	ft_skip_spaces(char **line);
 int			ft_get_info(t_cub *cub, char *line);
 int			ft_check_remaining_chars(char *line, char *type);
+void		ft_set_dir_var(t_game *game, t_cub *cub);
+int			ft_game_start(t_cub *cub);
+void		ft_get_sprite_pos(t_game *game);
+void		ft_game_init(t_game *game, t_cub *cub);
+void		ft_set_texture(t_game *game, t_cub *cub);
 
 #endif
